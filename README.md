@@ -17,7 +17,7 @@ This installer automates the following steps:
 JetBrains Toolbox is packaged as an AppImage, which needs some system dependencies. Most modern Linux distros have them pre-installed, but if you encounter trouble, ensure you have the following: `libfuse2 libxi6 libxrender1 libxtst6 mesa-utils libfontconfig libgtk-3-bin tar`.
 
 Run the following command to install JetBrains Toolbox. This command requires that you have `curl` and `wget`.  
-`curl -fsSL https://raw.githubusercontent.com/nagygergo/jetbrains-toolbox-install/master/jetbrains-toolbox.sh | bash`
+`curl -fsSL https://raw.githubusercontent.com/funos-linux/jetbrains-toolbox-install/master/jetbrains-toolbox.sh | bash`
 
 Alternatively, you can download the `jetbrains-toolbox.sh` file from this repository and run it.
 
