@@ -26,23 +26,14 @@ rm -f "$INSTALL_DIR/jetbrains-toolbox"
 tar -xzf "$TMP_DIR/$ARCHIVE_FILENAME" -C "$INSTALL_DIR" --strip-components=1
 rm -f "$TMP_DIR/$ARCHIVE_FILENAME"
 
-# Fix: The binary is inside bin/, so move it up one level
-if [ -f "$INSTALL_DIR/bin/jetbrains-toolbox" ]; then
-    mv "$INSTALL_DIR/bin/jetbrains-toolbox" "$INSTALL_DIR/"
-    chmod +x "$INSTALL_DIR/jetbrains-toolbox"
-else
-    echo "ERROR: jetbrains-toolbox binary not found after extraction"
-    exit 1
-fi
-
 echo -e "\e[94mSymlinking to $SYMLINK_DIR/jetbrains-toolbox...\e[39m"
 mkdir -p "$SYMLINK_DIR"
 rm -f "$SYMLINK_DIR/jetbrains-toolbox"
-ln -s "$INSTALL_DIR/jetbrains-toolbox" "$SYMLINK_DIR/jetbrains-toolbox"
+ln -s "$INSTALL_DIR/bin/jetbrains-toolbox" "$SYMLINK_DIR/jetbrains-toolbox"
 
 if [ -z "$CI" ]; then
     echo -e "\e[94mRunning for the first time to set-up...\e[39m"
-    ( "$INSTALL_DIR/jetbrains-toolbox" & )
+    ( "$INSTALL_DIR/bin/jetbrains-toolbox" & )
     echo -e "\n\e[32mDone! JetBrains Toolbox should now be running, in your application list, and you can run it in terminal as jetbrains-toolbox (ensure that $SYMLINK_DIR is on your PATH)\e[39m\n"
 else
     echo -e "\n\e[32mDone! Running in a CI -- skipped launching the AppImage.\e[39m\n"
