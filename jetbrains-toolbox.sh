@@ -30,7 +30,10 @@ ln -s "$INSTALL_DIR/bin/jetbrains-toolbox" "$SYMLINK_DIR/jetbrains-toolbox"
 # Ensure $HOME/.local/bin is in PATH permanently
 if ! grep -q 'export PATH="$HOME/.local/bin:$PATH"' "$HOME/.bashrc"; then
     echo -e "\e[94mAdding $HOME/.local/bin to PATH in ~/.bashrc...\e[39m"
-    echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.bashrc"
+    {
+        echo ""   # blank line
+        echo 'export PATH="$HOME/.local/bin:$PATH"'
+    } >> "$HOME/.bashrc"
  	source ~/.bashrc
 fi
 
