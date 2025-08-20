@@ -4,7 +4,7 @@ set -e
 set -o pipefail
 
 TMP_DIR="/tmp"
-INSTALL_DIR="$HOME/.local/share/JetBrains/Toolbox/bin"
+INSTALL_DIR="$HOME/.local/share/JetBrains/Toolbox"
 SYMLINK_DIR="$HOME/.local/bin"
 
 echo "### INSTALL JETBRAINS TOOLBOX ###"
